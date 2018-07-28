@@ -63,10 +63,10 @@ app.post('/todos', (req, res) => {
 
 app.get('/todos', (req, res) => {
 
-    Todo.find().then((doc) => {
+    Todo.find().then((todos) => {
         //res.send(doc) zou een array terugsturen. ({doc}) geeft een object
         //terug en dat geeft in de toekomst meer flexibiliteit
-        res.send({doc});
+        res.send({todos});
     }, (e) => {
         res.status(400).send(e);
     });
