@@ -9,7 +9,7 @@ into a javascript object
 
 // local imports
 /*
-var {mongoose}: By requiring in the file we run 
+var {mongoose}: By requiring in the file we run
 the code in it as well, that sets up the database
 connection for us.
 */
@@ -64,3 +64,5 @@ app.post('/todos', (req, res) => {
 app.listen(3000, () => {
     console.log('Started on port 3000');
 });
+
+module.exports = {app};
