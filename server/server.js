@@ -53,9 +53,20 @@ app.post('/todos', (req, res) => {
         text: req.body.text
     });
 
-
+//todo.save().then(fct, e)
     todo.save().then((doc) => {
         res.send(doc);
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
+
+app.get('/todos', (req, res) => {
+
+    Todo.find().then((doc) => {
+        //res.send(doc) zou een array terugsturen. ({doc}) geeft een object
+        //terug en dat geeft in de toekomst meer flexibiliteit
+        res.send({doc});
     }, (e) => {
         res.status(400).send(e);
     });
